@@ -1,0 +1,42 @@
+@import "./scss/style.scss";
+
+body,
+html {
+  font-family: "Roboto", sans-serif;
+  margin: 0px !important;
+  background: #f1f5f8;
+
+  @include rs-xs {
+    font-size: 14px;
+  }
+
+  @include rs-lg {
+    font-size: 16px;
+  }
+}
+
+input {
+  font-family: "Roboto", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f7fa;
+}
+::-webkit-scrollbar-thumb {
+  background: #999;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(74, 0, 224);
+}
+
+.header_gap {
+  height: 6rem;
+  @include rs-lg {
+    height: 8.45rem;
+  }
+}

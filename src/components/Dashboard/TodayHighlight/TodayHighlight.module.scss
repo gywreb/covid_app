@@ -1,0 +1,29 @@
+.title {
+  font-size: 1.125rem;
+  padding: 15px 15px 0px;
+  font-weight: normal;
+}
+
+.wrapper {
+  margin : 0px !important;
+  .today {
+  &_card {
+    &_box {
+      background: #e9e0fb;
+      border-radius: 4px;
+      padding: 15px;
+    }
+    &_title {
+      width: 100%;
+      font-size: 14px;
+      font-weight: normal;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    &_country {
+      padding: 15px 0px;
+      font-size: 14px;
+    }
+  }
+}
+}

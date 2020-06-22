@@ -1,0 +1,28 @@
+.card {
+  /* padding: 0 !important; */
+  margin-bottom: 10px !important;
+  width: 100%;
+}
+
+.content {
+  padding: 20px !important;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardtext {
+  color: white !important;
+}
+
+.status_title {
+  font-size: 16px !important;
+  font-weight: lighter !important;
+  margin-bottom: 18px !important;
+}
+
+.status_number {
+  font-size: 30px !important;
+  margin-bottom: 2px !important;
+}

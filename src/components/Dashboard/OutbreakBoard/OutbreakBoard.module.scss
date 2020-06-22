@@ -1,0 +1,107 @@
+@import "../../../scss/style.scss";
+
+.title {
+  font-size: 1.125rem;
+  font-weight: normal;
+  padding: 30px 0px 0px 10px;
+  @include rs-md {
+    padding: 15px 15px 0px;
+  }
+}
+.search_zone {
+  padding: 30px 0px 0px 0px !important;
+  @include rs-xl {
+    padding: 30px 10px 0px 0px !important;
+  }
+  .search_bar {
+    padding: 16px 12px 16px 15px;
+    background: white;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+    margin: 0px !important;
+  }
+
+  .search_input {
+    width: 50%;
+    @include rs-md {
+      flex-grow: 1;
+    }
+  }
+
+  .search_button {
+    cursor: pointer;
+    transition: all 0.4s;
+  }
+
+  .search_button:hover path {
+    fill: #4a00e0;
+  }
+}
+
+.country_notify {
+  height: 420px;
+  width: 100%;
+}
+
+.board_wrapper {
+  overflow-x: auto;
+  padding-bottom: 15px;
+  .board {
+    margin: 0px 15px;
+    border-radius: 4px;
+    min-width: 1363px;
+    border: 1px solid #dee2e6;
+    .title_tags,
+    .title_total {
+      padding: 0px 15px;
+      border-bottom: 1px solid #dee2e6;
+      text-align: center;
+      li {
+        width: (100% / 8);
+        color: #65748b;
+        padding: 15px;
+      }
+    }
+    .title_total {
+      border-top: 1px solid #dee2e6;
+      border-bottom: none;
+    }
+    .country_box {
+      height: 420px;
+      overflow-x: hidden;
+      .country_wrapper {
+        .country {
+          margin: 0px 7.5px !important;
+          border-bottom: 1px solid #dee2e6;
+          transition: all 0.3s;
+          &:hover {
+            background: rgba($color: #dee2e6, $alpha: 0.4);
+          }
+
+          li {
+            width: (100% / 8);
+            padding: 0px 15px;
+            text-align: center;
+          }
+          &_cases {
+            color: #65748b;
+          }
+          &_newcases,
+          &_newdeaths {
+            color: #ff054b;
+          }
+          &_deaths,
+          &_critical {
+            color: #fa5c7c;
+          }
+          &_active {
+            color: #ffc107;
+          }
+          &_recovered {
+            color: #04d39f;
+          }
+        }
+      }
+    }
+  }
+}

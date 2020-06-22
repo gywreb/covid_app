@@ -1,0 +1,27 @@
+/*  customzie jvectormap  */
+path.jvectormap-region {
+  cursor: pointer;
+}
+
+.jvectormap-tip {
+  background: white;
+  border: 1px solid white;
+  box-shadow: 0px 3px 20px #0000000b;
+  color: #333;
+}
+
+.jvectormap-zoomin,
+.jvectormap-zoomout {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #ebebeb;
+  color: #333;
+}
+
+.jvectormap-zoomout {
+  top: 44px;
+}

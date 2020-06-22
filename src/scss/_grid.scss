@@ -1,0 +1,56 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$gutter/2;
+  margin-right: -$gutter/2;
+  div[class^="col-"] {
+    padding: $gutter;
+  }
+  @include rs-mb {
+    @for $i from 1 through $col {
+      .col-mb-#{$i} {
+        width: (100% / $col) * $i;
+      }
+    }
+  }
+
+  @include rs-xs {
+    @for $i from 1 through $col {
+      .col-xs-#{$i} {
+        width: (100% / $col) * $i;
+      }
+    }
+  }
+
+  @include rs-sm {
+    @for $i from 1 through $col {
+      .col-sm-#{$i} {
+        width: (100% / $col) * $i;
+      }
+    }
+  }
+
+  @include rs-md {
+    @for $i from 1 through $col {
+      .col-md-#{$i} {
+        width: (100% / $col) * $i;
+      }
+    }
+  }
+
+  @include rs-lg {
+    @for $i from 1 through $col {
+      .col-lg-#{$i} {
+        width: (100% / $col) * $i;
+      }
+    }
+  }
+
+  @include rs-xl {
+    @for $i from 1 through $col {
+      .col-xl-#{$i} {
+        width: (100% / $col) * $i;
+      }
+    }
+  }
+}

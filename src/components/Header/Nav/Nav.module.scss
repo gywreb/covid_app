@@ -1,0 +1,97 @@
+@import "../../../scss/style.scss";
+
+@keyframes fromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.container {
+  max-width: 1340px;
+  margin: 0 auto;
+  ul {
+    li {
+      padding-right: 40px;
+      .nav_button {
+        color: #686868;
+        padding: 20px 10px;
+        transition: all 0.3s;
+        .icon path {
+          transition: all 0.3s;
+        }
+        &:hover {
+          .icon {
+            path {
+              fill: #4a00e0;
+            }
+          }
+          color: #4a00e0;
+        }
+        .label {
+          margin-left: 6px;
+        }
+      }
+      .nav_button.active {
+        color: #4a00e0;
+        .icon path {
+          fill: #4a00e0;
+        }
+      }
+    }
+  }
+}
+
+nav {
+  box-shadow: 0 19px 34px -15px #d2d2f2;
+  background: white;
+  padding: 0px 15px;
+  display: none;
+  @include rs-lg {
+    display: block;
+  }
+}
+
+.nav_fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  transform: translateX(100%);
+  z-index: 100;
+  display: block;
+  @include rs-lg {
+    display: none;
+  }
+  .close_button {
+    padding: 15px;
+    width: 100%;
+    background: white;
+    cursor: pointer;
+    border-bottom: 1px solid #686868;
+    transition: all 0.3s;
+    &:hover {
+      color: $purple;
+    }
+  }
+  &.active {
+    animation: fromRight 0.6s forwards;
+    @include rs-lg {
+      display: none;
+    }
+  }
+  &.unactive {
+    animation: fadeOutLeft 0.6s forwards;
+  }
+}

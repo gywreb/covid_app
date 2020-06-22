@@ -1,0 +1,53 @@
+@import "../../scss/style.scss";
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  .logo_date {
+    padding: 8px 15px 5px;
+    background: rgb(74, 0, 224);
+    .container {
+      max-width: 1340px;
+      margin: 0 auto;
+      .logo {
+        max-width: 160px;
+        display: none;
+        @include rs-lg {
+          display: block;
+        }
+      }
+      .logo_mobile {
+        width: 28px;
+        @include rs-lg {
+          display: none;
+        }
+      }
+      .date {
+        font-size: 1rem;
+        color: white;
+        justify-content: center;
+        @include rs-lg {
+          justify-content: flex-end;
+        }
+        p {
+          text-align: center;
+          font-weight: bolder;
+          span {
+            font-weight: normal;
+          }
+        }
+      }
+      .menu {
+        @include rs-lg {
+          display: none;
+        }
+        justify-content: flex-end;
+        &_button {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
