@@ -13,6 +13,7 @@ const covid_youtube =
 
 const vn_youtube =
   "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=covid&relevanceLanguage=vi&key=AIzaSyDqqoBeoS6DmwjcakP5r_AvX3weRQ2ehnY";
+
 export const fetchSummary = async () => {
   try {
     const { data } = await axios.get(`${url}/v2/all?yesterday`);
@@ -75,7 +76,7 @@ export const fetchYoutube = async () => {
   try {
     const {
       data: { items },
-    } = await axios.get(vn_youtube);
+    } = await axios.get(covid_youtube);
 
     return items;
   } catch (error) {

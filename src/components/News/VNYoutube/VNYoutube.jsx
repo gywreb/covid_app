@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchYoutube } from "../../../api";
 import cx from "classnames";
 import styles from "./VNYoutube.module.scss";
+import { YoutubeError } from "../../../images";
 
 const VNYoutube = () => {
   const [videos, setVideos] = useState([]);
@@ -11,10 +12,12 @@ const VNYoutube = () => {
     const fetchPlaylist = async () => {
       const playlist = await fetchYoutube();
       setVideos(playlist);
-      const {
-        id: { videoId },
-      } = playlist[0];
-      setPlay(videoId);
+      if (playlist) {
+        const {
+          id: { videoId },
+        } = playlist[0];
+        setPlay(videoId);
+      }
     };
     fetchPlaylist();
   }, [setVideos]);
@@ -25,8 +28,22 @@ const VNYoutube = () => {
   const handleChangeVideo = (val) => {
     setPlay(val);
   };
-
-  if (!videos[0]) return "Loading...";
+  if (!videos)
+    return (
+      <div className="col-xs-12 flex a-center jc-center">
+        <div className="row">
+          <div className="col-xs-12 flex a-center jc-center">
+            <h3> Oops ! There something wrong with Youtube</h3>
+          </div>
+          <div className="col-xs-12 flex a-center jc-center">
+            <img src={YoutubeError} alt="" />
+          </div>
+          <div className="col-xs-12 flex a-center jc-center">
+            <h3> Please come back later !</h3>
+          </div>
+        </div>
+      </div>
+    );
   else {
     return (
       <div className="col-xs-12">
@@ -46,7 +63,7 @@ const VNYoutube = () => {
           </div>
           <div className="col-xs-12 col-xl-6">
             <div className="row">
-              {videos.length
+              {videos
                 ? videos.map(
                     (
                       { id: { videoId }, snippet: { title, publishedAt } },

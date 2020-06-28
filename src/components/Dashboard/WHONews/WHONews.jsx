@@ -25,7 +25,7 @@ const WHONews = () => {
         <div className="col-xs-12">
           <h2 className={styles.title}>WHO Latest News</h2>
         </div>
-        <div className={cx("col-xs-12", styles.banner)}>
+        <div className={cx("col-xs-12 flex a-center jc-center", styles.banner)}>
           <img src={CovidNews} alt="" />
         </div>
         <div className="col-xs-12">

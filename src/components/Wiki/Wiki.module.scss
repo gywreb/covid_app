@@ -1,0 +1,21 @@
+.container {
+  max-width: 96%;
+  margin: 0 auto;
+  .title {
+    font-size: 1.125rem;
+    padding: 0px 12px;
+    margin: 30px 0px 5px;
+  }
+  .box {
+    padding: 0px 15px;
+    box-shadow: 0px 3px 20px #0000000b;
+    background: white;
+    border-radius: 4px;
+    &.symptom {
+      height: 100%;
+    }
+  }
+  .symptom_zone {
+    margin: 0px !important;
+  }
+}

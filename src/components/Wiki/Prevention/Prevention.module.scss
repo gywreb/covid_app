@@ -1,0 +1,16 @@
+.prevention {
+  &_box {
+    border: 1px solid #dae4fe;
+    padding: 15px;
+    min-height: 240px;
+  }
+  &_title {
+    color: #4d00e0;
+    font-size: 20px;
+  }
+  &_content {
+    text-align: center;
+    color: #65748b;
+    font-size: 14px;
+  }
+}

@@ -21,6 +21,7 @@ class Dashboard extends Component {
 
   async componentDidMount() {
     window.scrollTo(0, 0);
+    document.title = "Covilive";
     const fecthedData = await fetchSummary();
     this.setState({ data: fecthedData });
   }
