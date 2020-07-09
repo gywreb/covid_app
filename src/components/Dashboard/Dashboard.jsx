@@ -83,7 +83,10 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="col-xs-12 col-xl-4">
-              <div className={cx("row", styles.box)}>
+              <div
+                className={cx("row", styles.box)}
+                style={{ height: "728px" }}
+              >
                 <WHONews />
               </div>
             </div>

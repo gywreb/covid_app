@@ -1,1 +1,2 @@
-export { default as VNYoutube } from "./VNYoutube/VNYoutube";
+export { default as WorldYoutube } from "./WorldYoutube/WorldYoutube";
+export { default as WorldNews } from "./WorldNews/WorldNews";

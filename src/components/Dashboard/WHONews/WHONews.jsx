@@ -21,7 +21,7 @@ const WHONews = () => {
   if (!news) return "Loading...";
   else {
     return (
-      <div style={{ height: "728px" }}>
+      <React.Fragment>
         <div className="col-xs-12">
           <h2 className={styles.title}>WHO Latest News</h2>
         </div>
@@ -41,7 +41,7 @@ const WHONews = () => {
             </a>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 };

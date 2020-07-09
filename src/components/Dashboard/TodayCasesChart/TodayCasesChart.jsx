@@ -32,7 +32,7 @@ const TodayCasesChart = ({
                 labels: { usePointStyle: true, padding: 10 },
               },
               responsive: true,
-              maintainAspectRatio: true,
+              maintainAspectRatio: false,
             }}
           />
         </div>

@@ -13,6 +13,7 @@
 }
 
 .news_box {
+  max-width: 100%;
   padding: 0px 15px;
   .pubdate {
     font-size: 0.875rem;
@@ -25,7 +26,6 @@
     font-size: 1.5rem;
     color: #474747;
     max-height: 120px;
-    width: 375.23px;
     overflow: hidden;
     text-overflow: ellipsis;
     &:after {

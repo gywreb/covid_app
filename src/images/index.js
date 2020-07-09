@@ -21,3 +21,4 @@ export { default as NoTouch } from "./touch.png";
 export { default as StayHome } from "./home.png";
 export { default as MedicalHelp } from "./medical.png";
 export { default as FollowInstruction } from "./follow.png";
+export { default as CovidUpdate } from "./covid_update.png";

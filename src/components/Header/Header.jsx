@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { Logo, LogoMobile } from "../../images";
 import { ReactComponent as IconMenu } from "../../images/icon_menu.svg";
 import Nav from "./Nav/Nav";
