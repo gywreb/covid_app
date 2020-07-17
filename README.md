@@ -1,6 +1,6 @@
-# Covid Dashboard
+# COVILIVE
 
-A Live Update App about Covid 19
+A React App provides newest informations about COVID-19 
 
 - Install:
 
