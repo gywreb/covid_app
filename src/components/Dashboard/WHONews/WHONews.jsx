@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect } from "react";
 import { fecthWHONews } from "../../../api";
 import styles from "./WHONews.module.scss";
 import { CovidNews } from "../../../images";
@@ -36,7 +36,7 @@ const WHONews = () => {
               className={styles.news_content_box}
               dangerouslySetInnerHTML={{ __html: news.description }}
             ></div>
-            <a href={news.link} target="_blank">
+            <a href={news.link} target="_blank" rel="noopener noreferrer">
               Read more
             </a>
           </div>

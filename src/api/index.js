@@ -1,19 +1,17 @@
 import axios from "axios";
+import qs from "qs";
 
 const url = "https://corona.lmao.ninja";
-const alt_url = "https://disease.sh";
+// const alt_url = "https://disease.sh";
 
 const who_rss =
   "https://api.rss2json.com/v1/api.json?rss_url=https://www.who.int/rss-feeds/news-english.xml";
 
-const news_api =
-  "https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?qInTitle=covid&language=en&sortBy=publishedAt&pageSize=16&apiKey=c358aa0d14c04e3b9ef7088ec835a595";
+// const news_api =
+//   "https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?qInTitle=covid&language=en&sortBy=publishedAt&pageSize=16&apiKey=c358aa0d14c04e3b9ef7088ec835a595";
 
 const covid_youtube =
   "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&q=covid-19&relevanceLanguage=en&key=AIzaSyBMgrkV0E-n0wRJu8DGLzkGqldNDOla0jE";
-
-// const vn_youtube =
-//   "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=covid&relevanceLanguage=vi&key=AIzaSyDqqoBeoS6DmwjcakP5r_AvX3weRQ2ehnY";
 
 const covid_news =
   "https://gnews.io/api/v3/search?q=covid&max=8&token=e399daeca62821837c1e0edcbee78757";
@@ -43,8 +41,8 @@ export const fetchDailyData = async (country) => {
     let changeableUrl = "";
 
     if (country) {
-      changeableUrl = `${url}/v2/historical/${country}`;
-    } else changeableUrl = `${url}/v2/historical/All`;
+      changeableUrl = `${url}/v2/historical/${country}?lastdays=all`;
+    } else changeableUrl = `${url}/v2/historical/all?lastdays=all`;
 
     const { data } = await axios.get(changeableUrl);
 
@@ -94,6 +92,25 @@ export const fetchNews = async () => {
       data: { articles },
     } = await axios.get(covid_news);
     return articles;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchChatResponse = async (ask) => {
+  try {
+    const askData = qs.stringify({
+      question: `${ask}`,
+    });
+    const { data } = await axios({
+      method: "post",
+      url: "http://longnh.anttizen.com/api/faq",
+      data: askData,
+      headers: {
+        "content-type": "application/x-www-form-urlencoded;charset=utf-8",
+      },
+    });
+    return data;
   } catch (error) {
     console.log(error);
   }

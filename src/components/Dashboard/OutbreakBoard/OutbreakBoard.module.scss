@@ -27,15 +27,6 @@
       flex-grow: 1;
     }
   }
-
-  .search_button {
-    cursor: pointer;
-    transition: all 0.4s;
-  }
-
-  .search_button:hover path {
-    fill: #4a00e0;
-  }
 }
 
 .country_notify {

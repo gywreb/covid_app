@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { VectorMap } from "react-jvectormap";
 import styles from "./CountryCasesMap.module.scss";
-import cx from "classnames";
 import { fetchCountries } from "../../../api";
 
 class CountryCasesMap extends Component {

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "./OutbreakBoard.module.scss";
 import cx from "classnames";
+import CountUp from "react-countup";
 import { ReactComponent as IconSearch } from "../../../images/icon_search.svg";
 import { fetchCountries } from "../../../api";
 
 const OutbreakBoard = () => {
   const [countries, setCountries] = useState([]);
-
-  const [searchCountry, setSearchCountry] = useState("");
 
   const [updatedCountries, setUpdatedCountries] = useState([]);
 
@@ -19,11 +18,6 @@ const OutbreakBoard = () => {
     };
     fecthAPI();
   }, [setCountries]);
-
-  const handleInput = (e) => {
-    if (!e.target.value.trim()) setUpdatedCountries([...countries]);
-    setSearchCountry(e.target.value.trim());
-  };
 
   const searchAction = (searchCountry) => {
     if (!searchCountry) return alert("Please type in a country");
@@ -37,12 +31,10 @@ const OutbreakBoard = () => {
     ]);
   };
 
-  const handleClick = (searchCountry) => {
-    searchAction(searchCountry);
-  };
-
-  const handleEnter = (e, searchCountry) => {
-    if (e.keyCode === 13) {
+  const handleInput = (e) => {
+    if (!e.target.value.trim()) setUpdatedCountries([...countries]);
+    else {
+      const searchCountry = e.target.value.trim();
       searchAction(searchCountry);
     }
   };
@@ -62,12 +54,8 @@ const OutbreakBoard = () => {
                 type="text"
                 placeholder="Search..."
                 onChange={handleInput}
-                onKeyDown={(e) => handleEnter(e, searchCountry)}
               />
-              <IconSearch
-                className={styles.search_button}
-                onClick={() => handleClick(searchCountry)}
-              />
+              <IconSearch className={styles.search_button} />
             </div>
           </div>
         </div>
@@ -110,20 +98,48 @@ const OutbreakBoard = () => {
                         >
                           <ul className="flex a-center jc-spacebtw">
                             <li className={styles.country_name}>{country}</li>
-                            <li className={styles.country_cases}>{cases}</li>
-                            <li className={styles.country_newcases}>
-                              {todayCases ? `+ ${todayCases}` : " "}
+                            <li className={styles.country_cases}>
+                              <CountUp start={0} end={cases} separator="," />
                             </li>
-                            <li className={styles.country_deaths}>{deaths}</li>
+                            <li className={styles.country_newcases}>
+                              {todayCases ? (
+                                <CountUp
+                                  start={0}
+                                  end={todayCases}
+                                  prefix="+ "
+                                  separator=","
+                                />
+                              ) : (
+                                " "
+                              )}
+                            </li>
+                            <li className={styles.country_deaths}>
+                              <CountUp start={0} end={deaths} separator="," />
+                            </li>
                             <li className={styles.country_newdeaths}>
-                              {todayDeaths ? `+ ${todayDeaths}` : " "}
+                              {todayDeaths ? (
+                                <CountUp
+                                  start={0}
+                                  end={todayDeaths}
+                                  prefix="+ "
+                                  separator=","
+                                />
+                              ) : (
+                                " "
+                              )}
                             </li>
                             <li className={styles.country_critical}>
-                              {critical}
+                              <CountUp start={0} end={critical} separator="," />
                             </li>
-                            <li className={styles.country_active}>{active}</li>
+                            <li className={styles.country_active}>
+                              <CountUp start={0} end={active} separator="," />
+                            </li>
                             <li className={styles.country_recovered}>
-                              {recovered}
+                              <CountUp
+                                start={0}
+                                end={recovered}
+                                separator=","
+                              />
                             </li>
                           </ul>
                         </div>
@@ -146,46 +162,74 @@ const OutbreakBoard = () => {
               >
                 <li>Total</li>
                 <li>
-                  {updatedCountries.reduce(
-                    (acc, { cases }) => (acc += cases),
-                    0
-                  ) || "None"}
+                  <CountUp
+                    start={0}
+                    end={updatedCountries.reduce(
+                      (acc, { cases }) => (acc += cases),
+                      0
+                    )}
+                    separator=","
+                  />
                 </li>
                 <li>
-                  {updatedCountries.reduce(
-                    (acc, { todayCases }) => (acc += todayCases),
-                    0
-                  ) || "None"}
+                  <CountUp
+                    start={0}
+                    end={updatedCountries.reduce(
+                      (acc, { todayCases }) => (acc += todayCases),
+                      0
+                    )}
+                    separator=","
+                  />
                 </li>
                 <li>
-                  {updatedCountries.reduce(
-                    (acc, { deaths }) => (acc += deaths),
-                    0
-                  ) || "None"}
+                  <CountUp
+                    start={0}
+                    end={updatedCountries.reduce(
+                      (acc, { deaths }) => (acc += deaths),
+                      0
+                    )}
+                    separator=","
+                  />
                 </li>
                 <li>
-                  {updatedCountries.reduce(
-                    (acc, { todayDeaths }) => (acc += todayDeaths),
-                    0
-                  ) || "None"}
+                  <CountUp
+                    start={0}
+                    end={updatedCountries.reduce(
+                      (acc, { todayDeaths }) => (acc += todayDeaths),
+                      0
+                    )}
+                    separator=","
+                  />
                 </li>
                 <li>
-                  {updatedCountries.reduce(
-                    (acc, { critical }) => (acc += critical),
-                    0
-                  ) || "None"}
+                  <CountUp
+                    start={0}
+                    end={updatedCountries.reduce(
+                      (acc, { critical }) => (acc += critical),
+                      0
+                    )}
+                    separator=","
+                  />
                 </li>
                 <li>
-                  {updatedCountries.reduce(
-                    (acc, { active }) => (acc += active),
-                    0
-                  ) || "None"}
+                  <CountUp
+                    start={0}
+                    end={updatedCountries.reduce(
+                      (acc, { active }) => (acc += active),
+                      0
+                    )}
+                    separator=","
+                  />
                 </li>
                 <li>
-                  {updatedCountries.reduce(
-                    (acc, { recovered }) => (acc += recovered),
-                    0
-                  ) || "None"}
+                  <CountUp
+                    start={0}
+                    end={updatedCountries.reduce(
+                      (acc, { recovered }) => (acc += recovered),
+                      0
+                    )}
+                    separator=","
+                  />
                 </li>
               </ul>
             </div>

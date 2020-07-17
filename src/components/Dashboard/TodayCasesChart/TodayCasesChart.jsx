@@ -10,7 +10,7 @@ const TodayCasesChart = ({
     return (
       <React.Fragment>
         <div className="col-xs-12">
-          <h2 className={styles.title}>Total Cases Today</h2>
+          <h2 className={styles.title}>Today Numbers Breakdown</h2>
         </div>
         <div
           className="col-xs-12 flex a-center jc-center"
@@ -24,7 +24,7 @@ const TodayCasesChart = ({
                   backgroundColor: ["#727cf5", "#f53853", "#0acf97"],
                 },
               ],
-              labels: ["Cases", "Deaths", "Recovered"],
+              labels: ["New Cases", "Deaths", "Recovered"],
             }}
             options={{
               animation: { animateRotate: true, easing: "easeInQuad" },

@@ -72,7 +72,7 @@ class Dashboard extends Component {
             <div className="col-xs-12">
               <div className={cx("row", styles.box)}>
                 <div className={cx("col-xs-12", styles.title, styles.outbreak)}>
-                  Outbreak In The Last 30 Days
+                  Outbreak From Day One
                 </div>
                 <OutbreakBarChart />
               </div>

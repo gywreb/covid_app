@@ -26,6 +26,8 @@ path.jvectormap-region {
   top: 44px;
 }
 
+/* custom youtube modal container */
+
 .ReactModal__Overlay {
   opacity: 0;
   transition: opacity 200ms ease-in-out;
@@ -37,4 +39,81 @@ path.jvectormap-region {
 
 .ReactModal__Overlay--before-close {
   opacity: 0;
+}
+
+/* custom chat bot box */
+.rcw-widget-container {
+  width: 0px !important;
+}
+
+.rcw-conversation-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transform: translate(-100%, 0) !important;
+}
+
+@media (min-width: 880px) {
+  .rcw-conversation-container {
+    position: fixed;
+    bottom: 100px;
+    width: 380px;
+    transform: translate(-100%, 0) !important;
+  }
+}
+
+.rcw-title {
+  padding: 0px !important;
+  font-size: 1.5rem !important;
+  display: flex;
+  align-items: center;
+}
+
+.rcw-title > .avatar {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 0px !important;
+}
+
+.rcw-header {
+  padding: 15px 10px !important;
+  background-color: #4a00e0 !important;
+  align-items: center;
+}
+
+.rcw-header > span {
+  display: none;
+}
+
+.rcw-client > .rcw-message-text {
+  background-color: #4a00e0 !important;
+  color: white;
+}
+
+.rcw-close-button {
+  cursor: pointer;
+  background-color: #4a00e0 !important;
+}
+
+.rcw-launcher {
+  background-color: #4a00e0 !important;
+}
+
+.rcw-send {
+  cursor: pointer;
+}
+.rcw-message-text {
+  max-width: 250px !important;
+}
+
+.rcw-message-text p {
+  padding: 5px 0px;
+}
+
+.rcw-message-text p:first-child {
+  padding: 0px;
+}
+
+.rcw-message-text p:last-child {
+  padding: 0px;
 }

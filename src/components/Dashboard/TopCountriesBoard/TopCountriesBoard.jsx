@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./TopCountriesBoard.module.scss";
 import { fetchCountries } from "../../../api";
 import cx from "classnames";
+import CountUp from "react-countup";
 
 const TopCountriesBoard = () => {
   const [countries, setCountries] = useState([]);
@@ -122,15 +123,25 @@ const TopCountriesBoard = () => {
                       key={index}
                       className={cx("flex a-center", styles.country)}
                     >
-                      <li className="flex a-center">
+                      <li className={cx("flex a-center", styles.country_name)}>
                         <img src={flag} alt="flag" />
-                        <span className={styles.country_name}>{country}</span>
+                        <span>{country}</span>
                       </li>
-                      <li>{cases}</li>
-                      <li>{active}</li>
-                      <li>{critical}</li>
-                      <li>{deaths}</li>
-                      <li>{recovered}</li>
+                      <li>
+                        <CountUp start={0} end={cases} separator="," />
+                      </li>
+                      <li>
+                        <CountUp start={0} end={active} separator="," />
+                      </li>
+                      <li>
+                        <CountUp start={0} end={critical} separator="," />
+                      </li>
+                      <li>
+                        <CountUp start={0} end={deaths} separator="," />
+                      </li>
+                      <li>
+                        <CountUp start={0} end={recovered} separator="," />
+                      </li>
                     </ul>
                   )
                 )

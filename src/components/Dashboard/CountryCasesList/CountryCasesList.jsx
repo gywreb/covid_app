@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import styles from "./CountryCasesList.module.scss";
 import { fetchCountries } from "../../../api";
 import cx from "classnames";
+import CountUp from "react-countup";
 import { ReactComponent as IconSearch } from "../../../images/icon_search.svg";
 
 const CountryCasesList = () => {
   const [countries, setCountries] = useState([]);
-
-  const [searchCountry, setSearchCountry] = useState("");
 
   const [updatedCountries, setUpdatedCountries] = useState([]);
 
@@ -25,11 +24,6 @@ const CountryCasesList = () => {
     fetchAPI();
   }, [setCountries]);
 
-  const handleInput = (e) => {
-    if (!e.target.value.trim()) setUpdatedCountries([...countries]);
-    setSearchCountry(e.target.value.trim());
-  };
-
   const searchAction = (searchCountry) => {
     if (!searchCountry) return alert("Please type in a country");
 
@@ -41,16 +35,15 @@ const CountryCasesList = () => {
       ),
     ]);
   };
-  const handleClick = (searchCountry) => {
-    searchAction(searchCountry);
-  };
 
-  const handleEnter = (e, searchCountry) => {
-    if (e.keyCode === 13) {
+  const handleInput = (e) => {
+    if (!e.target.value.trim()) setUpdatedCountries([...countries]);
+    else {
+      const searchCountry = e.target.value.trim();
       searchAction(searchCountry);
     }
   };
-  // console.log(countries);
+
   if (!countries) return "Loading...";
   else {
     return (
@@ -61,12 +54,8 @@ const CountryCasesList = () => {
             type="text"
             placeholder="Search..."
             onChange={handleInput}
-            onKeyDown={(e) => handleEnter(e, searchCountry)}
           />
-          <IconSearch
-            className={styles.search_button}
-            onClick={() => handleClick(searchCountry)}
-          />
+          <IconSearch className={styles.search_button} />
         </div>
         <div className={styles.countries_list_box}>
           <ul>
@@ -86,7 +75,9 @@ const CountryCasesList = () => {
                     <div
                       className={cx("col-xs-6", styles.country_cases_number)}
                     >
-                      <span>{cases}</span>
+                      <span>
+                        <CountUp start={0} end={cases} separator="," />
+                      </span>
                     </div>
                   </li>
                 )

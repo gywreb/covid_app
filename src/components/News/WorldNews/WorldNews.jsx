@@ -115,13 +115,21 @@ const WorldNews = () => {
                     >
                       <div className={cx(styles.news_box, "row")}>
                         <div className={styles.img_container}>
-                          <a href={url} target="_blank">
+                          <a
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <img src={image ? image : CovidUpdate} alt="" />
                           </a>
                         </div>
                         <div className={cx("col-xs-12", styles.news_title)}>
                           <h3>
-                            <a href={url} target="_blank">
+                            <a
+                              href={url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
                               {title}
                             </a>
                           </h3>
@@ -170,13 +178,21 @@ const WorldNews = () => {
                     >
                       <div className={cx(styles.news_box, "row")}>
                         <div className={styles.img_container}>
-                          <a href={url} target="_blank">
+                          <a
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <img src={image ? image : CovidUpdate} alt="" />
                           </a>
                         </div>
                         <div className={cx("col-xs-12", styles.news_title)}>
                           <h3>
-                            <a href={url} target="_blank">
+                            <a
+                              href={url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
                               {title}
                             </a>
                           </h3>

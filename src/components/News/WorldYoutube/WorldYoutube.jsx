@@ -17,14 +17,16 @@ const WorldYoutube = () => {
     Modal.setAppElement("body");
     const fetchPlaylist = async () => {
       const playlist = await fetchYoutube();
-      const playlistByDate = playlist.sort((a, b) =>
-        new Date(a.snippet.publishedAt) > new Date(b.snippet.publishedAt)
-          ? -1
-          : new Date(b.snippet.publishedAt) > new Date(a.snippet.publishedAt)
-          ? 1
-          : 0
-      );
-      setVideos(playlistByDate);
+      if (playlist) {
+        const playlistByDate = playlist.sort((a, b) =>
+          new Date(a.snippet.publishedAt) > new Date(b.snippet.publishedAt)
+            ? -1
+            : new Date(b.snippet.publishedAt) > new Date(a.snippet.publishedAt)
+            ? 1
+            : 0
+        );
+        setVideos(playlistByDate);
+      } else setVideos(undefined);
     };
     fetchPlaylist();
   }, [setVideos]);
@@ -101,6 +103,7 @@ const WorldYoutube = () => {
         >
           <div className={styles.video_container}>
             <iframe
+              title="covid_news"
               src={`https://www.youtube.com/embed/${play}?autoplay=1`}
               frameBorder={0}
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

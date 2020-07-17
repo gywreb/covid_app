@@ -4,6 +4,7 @@ export { default as imgRecovered } from "./recovered.png";
 export { default as imgCritical } from "./critical.png";
 export { default as Logo } from "./Logo.png";
 export { default as LogoMobile } from "./Logo_mobile.png";
+export { default as LogoChat } from "./logo_chat.png";
 export { default as CovidNews } from "./covid_news.png";
 export { default as YoutubeError } from "./youtube_error.png";
 export { default as Covid1 } from "./covid_1.png";

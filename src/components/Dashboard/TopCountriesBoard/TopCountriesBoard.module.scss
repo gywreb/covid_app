@@ -46,6 +46,11 @@
           border-radius: 2px;
         }
       }
+      &_name {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        overflow: hidden;
+      }
     }
   }
 }

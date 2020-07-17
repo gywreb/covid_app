@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./TodayHighlight.module.scss";
 import { fetchCountries } from "../../../api";
 import cx from "classnames";
+import CountUp from "react-countup";
 
 const TodayHighlight = () => {
   const [countries, setCountries] = useState([]);
@@ -112,7 +113,11 @@ const TodayHighlight = () => {
                           className={styles.number}
                           style={{ color: color }}
                         >
-                          {type_list[index]}
+                          <CountUp
+                            start={0}
+                            end={type_list[index]}
+                            separator=","
+                          />
                         </span>
                       </li>
                     ))}

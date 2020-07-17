@@ -5,8 +5,6 @@ import { NavLink } from "react-router-dom";
 import { ReactComponent as IconDashboard } from "../../../images/icon_dashboard.svg";
 import { ReactComponent as IconWiki } from "../../../images/icon_wiki.svg";
 import { ReactComponent as IconNews } from "../../../images/icon_news.svg";
-import { ReactComponent as IconTest } from "../../../images/icon_test.svg";
-import { ReactComponent as IconChat } from "../../../images/icon_chat.svg";
 
 const Nav = ({ active, clicked, handleClose }) => {
   return (
@@ -43,26 +41,6 @@ const Nav = ({ active, clicked, handleClose }) => {
               >
                 <IconNews className={styles.icon} />
                 <span className={styles.label}>News</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/survivaltest"
-                className={cx("flex a-center", styles.nav_button)}
-                activeClassName={styles.active}
-              >
-                <IconTest className={styles.icon} />
-                <span className={styles.label}>Survival Test</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/chatroom"
-                className={cx("flex a-center", styles.nav_button)}
-                activeClassName={styles.active}
-              >
-                <IconChat className={styles.icon} />
-                <span className={styles.label}>Chat Room</span>
               </NavLink>
             </li>
           </ul>
@@ -117,28 +95,6 @@ const Nav = ({ active, clicked, handleClose }) => {
               >
                 <IconNews className={styles.icon} />
                 <span className={styles.label}>News</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/survivaltest"
-                className={cx("flex a-center", styles.nav_button)}
-                activeClassName={styles.active}
-                onClick={() => handleClose(true)}
-              >
-                <IconTest className={styles.icon} />
-                <span className={styles.label}>Survival Test</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/chatroom"
-                className={cx("flex a-center", styles.nav_button)}
-                activeClassName={styles.active}
-                onClick={() => handleClose(true)}
-              >
-                <IconChat className={styles.icon} />
-                <span className={styles.label}>Chat Room</span>
               </NavLink>
             </li>
           </ul>
