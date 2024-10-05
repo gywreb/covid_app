@@ -18,7 +18,7 @@ const covid_news =
 
 export const fetchSummary = async () => {
   try {
-    const { data } = await axios.get(`${url}/v2/all?yesterday`);
+    const { data } = await axios.get(`${url}/all?yesterday`);
 
     return data;
   } catch (error) {
@@ -42,7 +42,7 @@ export const fetchDailyData = async (country) => {
 
     if (country) {
       changeableUrl = `${url}/historical/${country}?lastdays=all`;
-    } else changeableUrl = `${url}/v2/historical/all?lastdays=all`;
+    } else changeableUrl = `${url}/historical/all?lastdays=all`;
 
     const { data } = await axios.get(changeableUrl);
 
