@@ -1,7 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 
-const url = "https://corona.lmao.ninja";
+const url = "https://disease.sh/v3/covid-19";
 // const alt_url = "https://disease.sh";
 
 const who_rss =
@@ -28,7 +28,7 @@ export const fetchSummary = async () => {
 
 export const fetchCountries = async () => {
   try {
-    const { data } = await axios.get(`${url}/v2/countries`);
+    const { data } = await axios.get(`${url}/countries`);
 
     return data;
   } catch (error) {
@@ -41,7 +41,7 @@ export const fetchDailyData = async (country) => {
     let changeableUrl = "";
 
     if (country) {
-      changeableUrl = `${url}/v2/historical/${country}?lastdays=all`;
+      changeableUrl = `${url}/historical/${country}?lastdays=all`;
     } else changeableUrl = `${url}/v2/historical/all?lastdays=all`;
 
     const { data } = await axios.get(changeableUrl);
@@ -54,7 +54,7 @@ export const fetchDailyData = async (country) => {
 
 export const fetchCountryPicker = async () => {
   try {
-    const { data } = await axios.get(`${url}/v2/historical`);
+    const { data } = await axios.get(`${url}/historical`);
 
     return data;
   } catch (error) {
